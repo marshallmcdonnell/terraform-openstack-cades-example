@@ -13,6 +13,8 @@ From web portal
 2) Enter password
 3) Run:
 ```
+terraform init # if first time
+terraform plan # (optional) check the plan
 terraform apply
 ```
 4) Review and enter `yes` to accept the changes to infrastructure
