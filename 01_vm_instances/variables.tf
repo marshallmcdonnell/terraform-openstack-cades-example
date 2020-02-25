@@ -17,3 +17,7 @@ variable "ssh_user_name" {
 variable "network_name" {
   default = "or_provider_general_extnetwork1"
 }
+
+variable "node_count" {
+  default = 2
+}

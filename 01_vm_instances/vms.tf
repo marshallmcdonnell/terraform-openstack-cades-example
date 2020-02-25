@@ -9,7 +9,7 @@ resource "openstack_compute_instance_v2" "node" {
   flavor_name     = var.flavor
   key_pair        = openstack_compute_keypair_v2.key.name
   security_groups = ["default"]
-  count = 2
+  count = var.node_count 
 
   network {
     name = var.network_name 
