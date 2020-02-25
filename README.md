@@ -17,3 +17,10 @@ terraform apply
 ```
 4) Review and enter `yes` to accept the changes to infrastructure
 5) Profit!!!
+
+# Resources
+Here is a list of some resources I found that have really helped in learning!
+
+## Videos
+ * Yevgeniy Brikman's 2017 HashiConf Talk "How to Build Reusable, Composable, Battle tested Terraform Modules" [video](https://www.youtube.com/watch?v=LVgP63BkhKQ&list=PLb4WHrYx4CZNqDHPIaXkFrezeq3GpSaT2&index=6&t=0s)
+ * Nicki Watt's 2017 HashiDays Talk "Evoling Your Instrastructure with Terraform" [video](https://www.youtube.com/watch?v=wgzgVm7Sqlk&list=PLb4WHrYx4CZNqDHPIaXkFrezeq3GpSaT2&index=6) _great for pitfalls to avoid_
