@@ -14,4 +14,15 @@ resource "openstack_compute_instance_v2" "node" {
   network {
     name = var.network_name 
   }
+
+  connection {
+    user = var.ssh_user_name
+    host = self.access_ip_v4
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "echo 'Hello, World'",
+    ]
+  }
 }
