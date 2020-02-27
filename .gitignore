@@ -36,3 +36,6 @@ override.tf.json
 
 # OpenStack RC files
 *openrc*
+
+# ETCD files
+*discovery_key.txt
