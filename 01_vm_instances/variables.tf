@@ -10,6 +10,10 @@ variable "ssh_key_file" {
   default = "~/.ssh/id_rsa"
 }
 
+variable "ssh_key_name" {
+  default = "01_vm_instances"
+}
+
 variable "ssh_user_name" {
   default = "cades"
 }
