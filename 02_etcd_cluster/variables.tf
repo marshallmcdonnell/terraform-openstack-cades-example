@@ -10,6 +10,10 @@ variable "ssh_key_file" {
   default = "~/.ssh/id_rsa"
 }
 
+variable "ssh_key_name" {
+  default = "02_etcd_cluster"
+}
+
 variable "ssh_user_name" {
   default = "cades"
 }

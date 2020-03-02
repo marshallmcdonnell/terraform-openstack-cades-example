@@ -1,11 +1,11 @@
 resource "openstack_compute_keypair_v2" "key" {
-  name = "cades"
+  name = var.ssh_key_name
   public_key = file("${var.ssh_key_file}.pub")
 }
 
-resource "null_resource" "get_discovery_key" {
+resource "null_resource" "get_root_cert_and_discovery_key" {
   provisioner "local-exec" {
-    command = "curl https://discovery.etcd.io/new?size=${var.node_count} >> discovery_key.txt"
+    command = "bash scripts/local-exec-setup.sh ${var.node_count} /tmp/certs"
   }
 }
 
@@ -27,18 +27,20 @@ resource "openstack_compute_instance_v2" "node" {
   }
 
   provisioner "file" {
-    source = "setup_etcd_ubuntu.sh"
-    destination = "setup_etcd_ubuntu.sh"
+    source = "scripts"
+    destination = "/home/${var.ssh_user_name}"
   }
 
   provisioner "file" {
-    source = "discovery_key.txt"
-    destination = "discovery_key.txt"
+    source = "/tmp/certs"
+    destination = "/home/${var.ssh_user_name}"
   }
 
   provisioner "remote-exec" {
     inline = [
-      "bash setup_etcd_ubuntu.sh ${self.name} ${self.access_ip_v4} "
+      "pwd",
+      "ls",
+      "bash scripts/remote-exec-setup-etcd-ubuntu.sh ${self.name} ${self.access_ip_v4} "
     ]
     on_failure = fail
   }
